@@ -1,6 +1,6 @@
-import { ErrorCorrectLevel } from "qrcode-generator-ts";
-import { Mode } from "qrcode-generator-ts/js/qrcode/Mode";
-import { QRData } from "qrcode-generator-ts/js/qrcode/QRData";
+import { QRData } from "qrcodegeneratorts/src/qrcode/QRData";
+import { Mode } from "qrcodegeneratorts/src/qrcode/Mode";
+import { ErrorCorrectLevel } from "qrcodegeneratorts/src/qrcode/ErrorCorrectLevel";
 
 export type Options = {
   width: number;

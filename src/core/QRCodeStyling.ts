@@ -2,7 +2,7 @@ import mergeDeep from "../tools/merge";
 import downloadURI from "../tools/downloadURI";
 import QRCanvas from "./QRCanvas";
 import defaultOptions, { Options } from "./QROptions";
-import { QRCode } from "qrcode-generator-ts";
+import { QRCode } from "qrcodegeneratorts/src/qrcode/QRCode";
 
 export default class QRCodeStyling {
   _options: Options;
