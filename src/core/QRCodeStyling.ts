@@ -1,8 +1,9 @@
+import getMode from "../tools/getMode";
 import mergeDeep from "../tools/merge";
 import downloadURI from "../tools/downloadURI";
 import QRCanvas from "./QRCanvas";
 import defaultOptions, { Options } from "./QROptions";
-import { QRCode } from "qrcodegeneratorts/src/qrcode/QRCode";
+import qrcode from "qrcode-generator";
 
 export default class QRCodeStyling {
   _options: Options;
@@ -29,10 +30,8 @@ export default class QRCodeStyling {
       return;
     }
 
-    this._qr = new QRCode();
-    this._qr.setTypeNumber(this._options.qrOptions.typeNumber);
-    this._qr.setErrorCorrectLevel(this._options.qrOptions.errorCorrectionLevel);
-    this._qr.addData(this._options.data);
+    this._qr = qrcode(this._options.qrOptions.typeNumber, this._options.qrOptions.errorCorrectionLevel);
+    this._qr.addData(this._options.data, this._options.qrOptions.mode || getMode(this._options.data));
     this._qr.make();
     this._canvas = new QRCanvas(this._options);
     this._canvas.drawQR(this._qr);

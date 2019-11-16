@@ -1,16 +1,15 @@
-import { QRData } from "qrcodegeneratorts/src/qrcode/QRData";
-import { Mode } from "qrcodegeneratorts/src/qrcode/Mode";
-import { ErrorCorrectLevel } from "qrcodegeneratorts/src/qrcode/ErrorCorrectLevel";
+import qrTypes from "../constants/qrTypes";
+import errorCorrectionLevels from "../constants/errorCorrectionLevels";
 
 export type Options = {
   width: number;
   height: number;
-  data?: QRData | string;
+  data?: string;
   image?: string;
   qrOptions: {
-    typeNumber: number;
+    typeNumber: TypeNumber;
     mode?: Mode;
-    errorCorrectionLevel: ErrorCorrectLevel;
+    errorCorrectionLevel: ErrorCorrectionLevel;
   };
   imageOptions: {
     hideBackgroundDots: boolean;
@@ -39,9 +38,9 @@ const defaultOptions: Options = {
   data: undefined,
   image: undefined,
   qrOptions: {
-    typeNumber: 0,
+    typeNumber: qrTypes[0],
     mode: undefined,
-    errorCorrectionLevel: ErrorCorrectLevel.Q
+    errorCorrectionLevel: errorCorrectionLevels.Q
   },
   imageOptions: {
     hideBackgroundDots: true,
